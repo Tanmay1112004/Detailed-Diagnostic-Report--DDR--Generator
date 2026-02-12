@@ -1,342 +1,261 @@
 # 🏠 Detailed Diagnostic Report (DDR) Generator
-## Applied AI Builder Assignment - Option A
+
+## Applied AI Builder Assignment – Option A
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0-red)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)
 ![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Architecture](https://img.shields.io/badge/Design-Multi--Stage-green)
+
+---
 
 <div align="center">
-  <img src="https://img.icons8.com/color/96/000000/google-gemini.png" width="80"/>
-  <img src="https://img.icons8.com/color/96/000000/streamlit.png" width="80"/>
-  <img src="https://img.icons8.com/color/96/000000/python.png" width="80"/>
-  
-  ### 🚀 Transform Raw Inspection Data → Professional Client-Ready Reports in Seconds
-  
-  [Features](#-key-features) • [Demo](#-quick-demo) • [Installation](#-installation) • [How It Works](#-system-architecture) • [Evaluation](#-assignment-evaluation-criteria)
+
+### 🚀 Converting Raw Inspection + Thermal Reports → Structured Client-Ready DDR
+
+**Assignment Focus:** System Thinking • Reliability • No Hallucinations • Structured AI Workflow
+
+🎥 **Loom Walkthrough:**
+[https://www.loom.com/share/bb3ca12a7b274b9f9c7595d2de9199db](https://www.loom.com/share/bb3ca12a7b274b9f9c7595d2de9199db)
+
 </div>
 
 ---
 
-## 📋 Assignment Overview
+# 📌 Assignment Objective
 
-**Task:** Convert technical inspection data + thermal findings → Structured Detailed Diagnostic Report (DDR)
+Build an AI system that:
 
-**Input:** 
-- 📄 Inspection Report PDF (site observations, issue descriptions)
-- 🌡️ Thermal Report PDF (temperature readings, thermal anomalies)
-
-**Output:** 7-Section Client-Ready DDR Report with NO hallucinations, NO invented facts, and explicit "Not Available" for missing data
-
----
-
-## ✨ Key Features
-
-| Feature | Implementation |
-|---------|----------------|
-| 🎯 **Zero Hallucination Guarantee** | Strict prompt engineering + post-generation validation |
-| 🔄 **Intelligent Data Fusion** | Combines inspection + thermal data logically, removes duplicates |
-| 🚨 **Conflict Detection** | Explicitly flags and describes conflicting information |
-| 📊 **Severity Assessment** | HIGH/MEDIUM/LOW with evidence-based reasoning |
-| 📱 **Professional UI** | Clean Streamlit interface with progress tracking |
-| 📥 **One-Click Export** | Download reports as formatted text files |
-| ✅ **Compliance Checker** | Auto-validates against assignment requirements |
-| 🔧 **Generalizable** | Works on ANY inspection/thermal PDFs - not hardcoded |
+* Reads **Inspection Report**
+* Reads **Thermal Report**
+* Extracts relevant findings
+* Merges them logically
+* Detects missing/conflicting information
+* Generates a structured **7-section Detailed Diagnostic Report**
+* Avoids hallucinations
+* Uses simple client-friendly language
 
 ---
 
-## 🎥 Quick Demo
+# 🏗️ System Architecture (Designed for Reliability)
+
+This solution intentionally avoids single-prompt generation.
+
+Instead, it uses a **multi-stage AI workflow**:
 
 ```
-1. Upload Inspection Report PDF → 2. Upload Thermal Report PDF → 3. Click Generate → 4. Get Professional DDR Report
+PDF Upload
+    ↓
+Text Extraction Layer
+    ↓
+Structured JSON Extraction (Inspection + Thermal separately)
+    ↓
+Deterministic Merge Logic (Python)
+    ↓
+Conflict & Missing Data Detection
+    ↓
+Controlled DDR Generation (Strict Template)
+    ↓
+Compliance Validation
 ```
 
-[![Watch the Demo](https://img.shields.io/badge/▶️-Watch_Loom_Video-8A2BE2?style=for-the-badge)](your-loom-link-here)
+### Why this matters:
+
+* Prevents hallucination
+* Enables structured reasoning
+* Handles imperfect data
+* Generalizes to similar reports
+* Shows production-level system thinking
 
 ---
 
-## 🚀 Installation
+# 🧠 Core Design Decisions
 
-### Prerequisites
-- Python 3.9+
-- Gemini API Key (already included in code)
+## 1️⃣ Structured Intermediate Layer
 
-### 1️⃣ Clone & Setup
+Instead of generating DDR directly from raw text:
+
+* Inspection report → Converted to structured JSON
+* Thermal report → Converted to structured JSON
+* Merged programmatically before final generation
+
+This ensures:
+
+* No duplicate entries
+* Explicit area mapping
+* Conflict detection possible
+
+---
+
+## 2️⃣ Anti-Hallucination Guardrails
+
+Strict enforcement in prompt:
+
+* “Do NOT invent facts”
+* Missing fields → must output `"Not Available"`
+* Conflicts → explicitly mention
+* No assumptions allowed
+
+This aligns directly with assignment constraints.
+
+---
+
+## 3️⃣ Deterministic Merging Logic
+
+* Fuzzy area matching (RapidFuzz)
+* Programmatic conflict detection
+* Missing thermal data flagged automatically
+
+The LLM does reasoning.
+The system enforces structure.
+
+---
+
+# 📊 Output Structure (Exactly as Required)
+
+Generated DDR always contains:
+
+1. Property Issue Summary
+2. Area-wise Observations
+3. Probable Root Cause
+4. Severity Assessment (with reasoning)
+5. Recommended Actions
+6. Additional Notes
+7. Missing or Unclear Information
+
+No deviations. No freestyle formatting.
+
+---
+
+# 🖥️ Application Interface (Streamlit UI)
+
+## Upload → Generate → Review → Download
+
+### Screenshots
+
+![Screenshot 1](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172038_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 2](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172130_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 3](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172149_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 4](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172226_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+---
+
+# ⚙️ Tech Stack
+
+* **Python 3.9+**
+* **Gemini 2.5 Flash**
+* **Streamlit**
+* **pdfplumber**
+* **RapidFuzz**
+* **dotenv for secure API management**
+
+---
+
+# 🚀 Installation
+
 ```bash
-# Clone repository
-git clone https://github.com/yourusername/ddr-report-generator.git
-cd ddr-report-generator
+git clone https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator.git
+cd Detailed-Diagnostic-Report--DDR--Generator
 
-# Create virtual environment
 python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
 
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Mac/Linux:
-source venv/bin/activate
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Launch Application
+Create `.env`:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+Run:
+
 ```bash
 streamlit run app.py
 ```
 
-The app will open at **http://localhost:8501** 🎉
+---
+
+# 📋 Assignment Evaluation Criteria – Covered
+
+| Requirement                   | Implementation                       |
+| ----------------------------- | ------------------------------------ |
+| Extract relevant observations | Structured extraction layer          |
+| Combine inspection + thermal  | Deterministic merge logic            |
+| Avoid duplicates              | Programmatic deduplication           |
+| Handle missing data           | Explicit `"Not Available"` insertion |
+| Handle conflicts              | Severity mismatch detection          |
+| Client-friendly language      | Prompt constraints                   |
+| No hallucinations             | Guardrails + validation              |
+| Generalizable                 | No hardcoded area names              |
 
 ---
 
-## 🏗️ System Architecture
+# 🔬 Reliability Considerations
 
-```mermaid
-graph TD
-    A[User Uploads PDFs] --> B[PyPDF2 Text Extraction]
-    B --> C[Gemini 2.5 Flash API]
-    C --> D[Structured Prompt Engine]
-    D --> E[DDR Generation]
-    E --> F[Validation Layer]
-    F --> G[Display & Download]
-    
-    H[Inspection Report] --> A
-    I[Thermal Report] --> A
-    J[7-Section Template] --> D
-    K[Anti-Hallucination Rules] --> D
-```
+* Missing thermal mapping explicitly flagged
+* Conflict detection between severity indicators
+* No inference beyond document evidence
+* Clean separation between extraction & generation
+* Structured intermediate artifacts available for review
 
 ---
 
-## 💡 How It Works
+# 📉 Known Limitations
 
-### 1. **Smart PDF Processing**
-- Extracts clean text from any PDF (inspection/thermal)
-- Handles corrupted files gracefully
-- Preserves document structure
-
-### 2. **Intelligent Prompt Engineering**
-```python
-# The secret sauce - strict instruction set:
-- "NEVER invent facts" - Primary directive
-- "Not Available" for missing data - Enforced
-- Conflict detection - Mandatory section
-- Client-friendly language - No technical jargon
-```
-
-### 3. **Multi-Layer Validation**
-- ✅ Section completeness check
-- ✅ "Not Available" presence verification  
-- ✅ Hallucination pattern detection
-- ✅ Conflict reporting validation
-
-### 4. **Professional Output**
-- Clean markdown formatting
-- One-click download
-- Timestamped filenames
-- Ready for client delivery
+* Area matching depends on naming similarity
+* Thermal report lacks precise image-to-room mapping
+* PDF extraction quality impacts structured accuracy
+* No OCR for scanned PDFs (future enhancement)
 
 ---
 
-## 📊 Assignment Evaluation Criteria - ✅ COMPLETED
+# 🔮 Future Improvements
 
-| Criteria | Implementation | Status |
-|----------|---------------|--------|
-| **Extract relevant observations** | Gemini analyzes full document context, extracts only pertinent findings | ✅ |
-| **Combine information logically** | Thermal anomalies mapped to specific areas from inspection report | ✅ |
-| **Avoid duplicate points** | Explicit deduplication instruction in system prompt | ✅ |
-| **Handle missing data** | "Not Available" automatically inserted for gaps | ✅ |
-| **Handle conflicting details** | Dedicated section with explicit conflict statements | ✅ |
-| **Client-friendly language** | Prompt forces layperson terminology, no jargon | ✅ |
-| **7-section DDR structure** | Enforced via strict output template | ✅ |
-| **No invented facts** | Primary directive + post-generation audit | ✅ |
-| **Generalizable solution** | Works on ANY PDFs, not hardcoded | ✅ |
+With additional time:
+
+* Confidence score per area
+* Vector-based semantic area matching
+* OCR support
+* PDF/DOCX export formatting
+* Batch processing for multiple properties
+* Human-in-the-loop review layer
 
 ---
 
-## 🔬 Technical Deep Dive
+# 🎯 Why This Solution Demonstrates Applied AI Thinking
 
-### 🧠 AI Model Strategy
-**Model:** `gemini-2.0-flash-exp`
-- **Why?** 1M token context window, superior reasoning, cost-effective
-- **Prompt Architecture:** 3-layer instruction hierarchy
-  1. Role assignment (Building Diagnostics Engineer)
-  2. Strict rules (NO hallucinations, NO jargon)
-  3. Output template (Exact 7-section structure)
+This project was built to reflect:
 
-### 🛡️ Anti-Hallucination System
-```python
-1. Primary Guard: "NEVER invent facts not in documents"
-2. Secondary Guard: "Not Available" requirement
-3. Tertiary Guard: Post-generation pattern matching
-4. Quaternary Guard: Human-review flag for speculative language
-```
+* Multi-stage AI workflow design
+* Structured reasoning over raw prompting
+* Deterministic + LLM hybrid architecture
+* Guardrail-driven generation
+* Production-aware system design
 
-### 📁 File Processing Pipeline
-- **PDF Extraction:** PyPDF2 with fallback mechanisms
-- **Encoding:** UTF-8 with error handling
-- **Size Limit:** Handles reports up to 50MB
-- **Speed:** 15-25 seconds total processing
+It focuses on **reliability and system thinking**, not just calling an API.
 
 ---
 
-## 🎯 Why This Solution Stands Out
+# 👤 Candidate
 
-### 🔥 **1. Production-Ready Architecture**
-- Not a notebook - full application
-- Error handling at every layer
-- User feedback via progress indicators
-- Clean separation of concerns
+**Tanmay**
+AI Generalist | Applied AI Builder
 
-### 🎨 **2. Recruiter-First Design**
-- **Zero learning curve** - Upload PDFs, get report
-- **Visible compliance** - Auto-checker shows all requirements met
-- **Professional output** - Client-ready formatting
-- **Demonstrates systems thinking** - Not just API calling
-
-### 🧪 **3. Rigorous Testing Mindset**
-```python
-# Built-in validation for assignment compliance
-✅ "Not Available" presence verified
-✅ All 7 sections checked
-✅ Hallucination patterns flagged
-✅ Conflict reporting validated
-```
-
-### 📈 **4. Scalability Built-In**
-- Easy to add OCR for scanned PDFs
-- Simple to integrate vector database for large reports
-- Ready for multi-language support
-- Can add confidence scoring
-
----
-
-## 📝 Sample Output Preview
-
-```markdown
-# DETAILED DIAGNOSTIC REPORT (DDR)
-Generated: 2024-01-15
-
-## 1. Property Issue Summary
-The inspection revealed moisture intrusion in the master bedroom 
-exterior wall, corroborated by thermal imaging showing temperature 
-differentials of 4.2°C. The roof flashing shows signs of deterioration...
-
-## 2. Area-wise Observations
-- **Master Bedroom (North Wall)**: 
-  - Inspection: Visible damp patches, paint bubbling
-  - Thermal: Cold spot -2.1°C below ambient
-  - Assessment: Active water infiltration
-
-[Full 7-section output continues...]
-```
-
----
-
-## 🔮 Future Enhancements
-
-With 48 more hours, I would add:
-
-| Enhancement | Impact |
-|------------|--------|
-| **OCR Integration** | Support scanned/image-based PDFs |
-| **Vector Database** | RAG for reports > 100 pages |
-| **Confidence Scores** | ML-based reliability ratings per finding |
-| **Multi-format Export** | PDF, DOCX, JSON output |
-| **Email Integration** | Auto-send reports to clients |
-| **Batch Processing** | Handle multiple properties at once |
-
----
-
-## 🏆 Why I Deserve This Role
-
-✅ **I don't just use AI - I engineer it**  
-*Built a production system with validation layers, not a Jupyter notebook*
-
-✅ **I think like an engineer**  
-*Error handling, edge cases, scalability - all considered*
-
-✅ **I deliver client-ready solutions**  
-*Output is professional, not technical jargon*
-
-✅ **I respect constraints**  
-*Followed every assignment rule meticulously*
-
-✅ **I'm ready Day 1**  
-*Code is documented, tested, and deployment-ready*
-
----
-
-## 📄 License
-
-MIT License - feel free to use for your own assignments!
+Assignment Completed Within 24 Hours
+All Requirements Met
 
 ---
 
 <div align="center">
-  <h3>⭐ Built with precision for the Applied AI Builder Assignment ⭐</h3>
-  <p>
-    <strong>Candidate:</strong> Ready to build production AI systems<br>
-    <strong>Status:</strong> All requirements ✅ | Ready for review 🚀
-  </p>
-  
-  [![Made with](https://img.shields.io/badge/Made%20with-❤️-ff69b4)]()
-  [![24 Hours](https://img.shields.io/badge/Time-24%20Hours-blue)]()
-  [![Status](https://img.shields.io/badge/Status-Completed-success)]()
+
+### ⭐ Built with engineering discipline, not just prompts ⭐
+
 </div>
-```
 
 ---
-
-## 📦 Complete File Structure
-
-```
-ddr-report-assignment/
-│
-├── app.py                 # Main Streamlit application (AI logic + UI)
-├── requirements.txt       # Dependencies
-├── README.md             # You are here - Recruiter-ready documentation
-│
-├── assets/               # (Optional) Screenshots for README
-│   ├── demo1.png
-│   ├── demo2.png
-│   └── architecture.png
-│
-└── sample_output/        # (Optional) Example generated reports
-    └── DDR_sample.txt
-```
-
----
-
-## 🚦 Quick Start (1 Minute)
-
-```bash
-# Copy these commands - works in 60 seconds
-git clone https://github.com/yourusername/ddr-report-assignment
-cd ddr-report-assignment
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-**That's it.** Your browser opens, upload PDFs, get professional report. 🎯
-
----
-
-## 📧 Contact
-
-**Candidate:** [Your Name]  
-**Role:** AI Generalist | Applied AI Builder  
-**Status:** Ready for immediate start  
-
----
-
-<div align="center">
-  <h3>🎯 This README proves I can:</h3>
-  <p>✅ Document complex systems clearly<br>
-  ✅ Think from recruiter's perspective<br>
-  ✅ Present technical work professionally<br>
-  ✅ Deliver beyond requirements</p>
-  
-  <h2>⭐ Assignment Complete - Ready for Review ⭐</h2>
-</div>
-```
