@@ -37,6 +37,23 @@ Build an AI system that:
 
 ---
 
+# 🖥️ Application Interface (Streamlit UI)
+
+## Upload → Generate → Review → Download
+
+### Screenshots
+
+![Screenshot 1](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172038_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 2](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172130_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 3](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172149_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+![Screenshot 4](https://github.com/Tanmay1112004/Detailed-Diagnostic-Report--DDR--Generator/blob/main/screenshots/Screenshot_12-2-2026_172226_cuddly-pancake-g45vp4gj4g4j29rq9-8501.app.github.dev.jpeg)
+
+---
+
+
 # 🏗️ System Architecture (Designed for Reliability)
 
 This solution intentionally avoids single-prompt generation.
